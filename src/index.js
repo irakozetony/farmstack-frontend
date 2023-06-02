@@ -1,13 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import App from './Users';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Car from "./pages/Car";
+import Cars from "./pages/Cars";
+import NewCar from "./pages/NewCar";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+      <BrowserRouter>
+          <Routes>
+              <Route path="/" element={<App />} />
+              <Route path="cars" element={<Cars />}/>
+              <Route path="new" element={<NewCar />}/>
+              <Route path="cars/:id" element={<Car />}/>
+          </Routes>
+      </BrowserRouter>
   </React.StrictMode>
 );
 
